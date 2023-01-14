@@ -81,8 +81,8 @@ function App() {
       </div>
       <Container>
       <Form inline>
-           <FormControl id="searchform" type="text" placeholder="Address" className="mr-sm-2" />
-           <Button onClick={handleSubmit} variant="outline-light">Search</Button>
+           <FormControl id="searchform" type="text" placeholder="Type in a location!" className="mr-sm-2" />
+           <Button onClick={handleSubmit}>Search</Button>
          </Form>
       </Container>
     </div>
