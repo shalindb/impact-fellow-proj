@@ -26,6 +26,7 @@ const style = {
 };
 
 function App() {
+  
   async function handleSubmit(e){
     console.log('What the fuck');
     // e.preventDefault(); 
@@ -39,7 +40,6 @@ function App() {
     //   history.push(`apartment?id=${data.data._id}`);
     // })
     // // ?id=${data.data._id}
-
 
   }
 
