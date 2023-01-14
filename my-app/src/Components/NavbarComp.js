@@ -22,12 +22,12 @@ export default class NavbarComp extends Component {
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="mr-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
+                                style={{ maxHeight: '200px' }}
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
                                 <Nav.Link as={Link} to="/about">About</Nav.Link>
-                                <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                                <Nav.Link as={Link} to="/contact">Mentorship Program</Nav.Link>
 
                             </Nav>
 
