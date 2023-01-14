@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component, useState } from 'react';
 import {Button, Alert} from 'react-bootstrap';
-import {Container, Row} from 'react-bootstrap';
+import {Container, Row, Form, FormControl} from 'react-bootstrap';
 import Grid from '@mui/material/Button';
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 import * as Icon from 'react-bootstrap-icons';
@@ -10,7 +10,23 @@ import * as Icon from 'react-bootstrap-icons';
 import NavbarComp from './Components/NavbarComp';
 
 function App() {
-  const [showSearchAlert, setShowSearchAlert] = useState(false);
+  async function handleSubmit(e){
+    console.log('What the fuck');
+    // e.preventDefault(); 
+    // const nameValue = document.getElementById("searchform").value;
+    // console.log("value", nameValue); 
+    
+    // await axios.post('http://localhost:8000/api/getaddress', {
+    //     address: nameValue
+    // }).then((data) => {
+    //   console.log("send successfully",data.data._id);
+    //   history.push(`apartment?id=${data.data._id}`);
+    // })
+    // // ?id=${data.data._id}
+
+
+  }
+
   return (
     <div className="App">
       <NavbarComp/>
@@ -34,14 +50,10 @@ function App() {
       </div>
       </div>
       <Container>
-        <>
-          <MDBInputGroup>
-            <MDBInput label='Search' />
-            <MDBBtn onClick={() => setShowSearchAlert(true)} rippleColor='dark'>
-              <MDBIcon icon='search' />
-            </MDBBtn>
-          </MDBInputGroup>
-        </>
+      <Form inline>
+           <FormControl id="searchform" type="text" placeholder="Address" className="mr-sm-2" />
+           <Button onClick={handleSubmit} variant="outline-light">Search</Button>
+         </Form>
       </Container>
     </div>
   );
