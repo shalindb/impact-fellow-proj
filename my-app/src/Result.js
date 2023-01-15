@@ -12,6 +12,11 @@ import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NavbarComp from './Components/NavbarComp';
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 const style = {
   position: 'absolute',
@@ -24,6 +29,17 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  height: 60,
+  lineHeight: '60px',
+}));
+
+const darkTheme = createTheme({ palette: { mode: 'dark' } });
+const lightTheme = createTheme({ palette: { mode: 'light' } });
 
 function App() {
   
@@ -80,10 +96,6 @@ function App() {
       </div>
       </div>
       <Container>
-      <Form inline>
-           <FormControl id="searchform" type="text" placeholder="Type in a location!" className="mr-sm-2" />
-           <Button onClick={handleSubmit}>Search</Button>
-         </Form>
       </Container>
     </div>
   );
@@ -91,7 +103,7 @@ function App() {
 
 export default App;
 
- function TransitionsModal() {
+function TransitionsModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -122,5 +134,33 @@ export default App;
         </Fade>
       </Modal>
     </div>
+  );
+}
+
+export default function Elevation() {
+  return (
+    <Grid container spacing={2}>
+      {[lightTheme, darkTheme].map((theme, index) => (
+        <Grid item xs={6} key={index}>
+          <ThemeProvider theme={theme}>
+            <Box
+              sx={{
+                p: 2,
+                bgcolor: 'background.default',
+                display: 'grid',
+                gridTemplateColumns: { md: '1fr 1fr' },
+                gap: 2,
+              }}
+            >
+              {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
+                <Item key={elevation} elevation={elevation}>
+                  {`elevation=${elevation}`}
+                </Item>
+              ))}
+            </Box>
+          </ThemeProvider>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
