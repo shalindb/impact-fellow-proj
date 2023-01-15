@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useRef } from 'react';
 import {Button, Alert} from 'react-bootstrap';
 import {Container, Row, Form, FormControl} from 'react-bootstrap';
 import Grid from '@mui/material/Button';
@@ -12,6 +12,7 @@ import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NavbarComp from './Components/NavbarComp';
+import axios from 'axios'; 
 
 const style = {
   position: 'absolute',
@@ -26,25 +27,36 @@ const style = {
 };
 
 function App() {
+  const [listInfo, setListInfo] = useState(null);
+  const stateRef = useRef();
+  stateRef.current = listInfo;
   
-  async function handleSubmit(e){
-    console.log('What the fuck');
-    // e.preventDefault(); 
-    // const nameValue = document.getElementById("searchform").value;
-    // console.log("value", nameValue); 
+  function handleSubmit(e){
+    e.preventDefault(); 
+    console.log('test');
+    axios.get('http://localhost:9820/data').then((resp) => {
+      
+      console.log(resp.data);
+      setListInfo(JSON.stringify(resp.data));
+      
+    })
     
-    // await axios.post('http://localhost:8000/api/getaddress', {
-    //     address: nameValue
-    // }).then((data) => {
-    //   console.log("send successfully",data.data._id);
-    //   history.push(`apartment?id=${data.data._id}`);
-    // })
-    // // ?id=${data.data._id}
-
   }
+  console.log('test');
+  console.log(listInfo);
+
+  
+  
+
+
+
+
 
   return (
     <div className="App">
+      <div>
+        <div>{listInfo}</div>
+      </div>
        <Button
           title="Button Text"
           onPress={() => { /* Function to be called when button is pressed */ }}
@@ -79,12 +91,14 @@ function App() {
       </Grid>
       </div>
       </div>
+      
       <Container>
       <Form inline>
            <FormControl id="searchform" type="text" placeholder="Type in a location!" className="mr-sm-2" />
            <Button onClick={handleSubmit}>Search</Button>
          </Form>
       </Container>
+
     </div>
   );
 }
