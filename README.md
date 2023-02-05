@@ -1,1 +1,1 @@
-# impact-fellow-proj
+# Impact Labs Fellow Project
