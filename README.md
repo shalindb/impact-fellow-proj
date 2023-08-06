@@ -4,7 +4,8 @@ What has a greater potential for change: plastic bottles or people? 31% of plast
 
 We've created The Connecting Piece to solve the following problems:
 
-a) Simplified Process to find jobs: From writing the first email to your first interview, our resource hub can help.                                    b) Finding jobs that actually hire the formerly incarcerated: Our board is focused only on curating relevant opportunities   
+a) Simplified Process to find jobs: From writing the first email to your first interview, our resource hub can help.                                    
+b) Finding jobs that actually hire the formerly incarcerated: Our board is focused only on curating relevant opportunities   
 c) Creating a support network: A kind and compassionate community of mentors and mentees. 
 
 
